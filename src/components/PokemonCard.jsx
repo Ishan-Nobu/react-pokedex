@@ -3,7 +3,7 @@ import { pokemonImageUrl } from "../utils/helper";
 import { bgColorGradient } from "../utils/backgroundColors";
 import { getPokemon } from "../utils/apiFetch";
 import PokemonDialog from "./PokemonDialog";
-import Loading from "./Loading";
+import { capitalize } from "@mui/material";
 
 function PokemonCard( { id })
 {   
@@ -47,7 +47,7 @@ function PokemonCard( { id })
                 </div>
 
                 <div className="imageContainer">
-                    <img src={pokemonImageUrl(pokemonData.id)} alt="pokemon-sprite" />
+                    <img src={pokemonImageUrl(pokemonData.id)} alt="sprite" />
                 </div>
 
                 <div className="nameContainer">
@@ -57,7 +57,7 @@ function PokemonCard( { id })
                 <div className="types">
                     <span className={pokemonData?.types?.[0]?.type?.name}>{pokemonData?.types?.[0]?.type?.name}</span>
                     {pokemonData?.types?.[1]?.type?.name ? 
-                    <span className={pokemonData?.types?.[1]?.type?.name}>{pokemonData?.types?.[1]?.type?.name}</span> 
+                    <span className={pokemonData?.types?.[1]?.type?.name}>{capitalize(String(pokemonData?.types?.[1]?.type?.name))}</span> 
                     : ""}
                 </div>                      
             </div>   

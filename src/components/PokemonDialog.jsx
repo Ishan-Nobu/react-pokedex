@@ -1,6 +1,6 @@
 import { pokemonImageUrl } from "../utils/helper";
-import { Dialog, DialogContent, DialogTitle, capitalize } from "@material-ui/core";
-    
+import { Dialog, DialogContent, DialogTitle, capitalize } from "@mui/material";
+
 
 function PokemonDialog( { pokemon, isDialogOpened, handleCloseDialog, bgColor1, bgColor2, })
 {   
@@ -18,7 +18,7 @@ function PokemonDialog( { pokemon, isDialogOpened, handleCloseDialog, bgColor1, 
                         </div>
 
                         <div className="modal-image-container">
-                            <img src={pokemonImageUrl(pokemon.id)} alt="pokemon-sprite" />
+                            <img src={pokemonImageUrl(pokemon.id)} alt="sprite" />
                         </div>
 
                         <div className="kohan">

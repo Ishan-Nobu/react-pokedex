@@ -1,10 +1,22 @@
-.title
+.pokeHeader
 {   
+    
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    margin: 0 auto;
+}
+.githubIcon
+{   
+    cursor: pointer;
+    max-width: fit-content;
+    max-height: fit-content;
+    margin-right: 100px;
+}
+.githubIconDupe
+{
+    visibility: hidden;
+    margin-left: 100px;
 }
 body 
 {
