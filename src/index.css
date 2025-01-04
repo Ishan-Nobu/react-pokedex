@@ -1,0 +1,276 @@
+.title
+{   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+body 
+{
+    background-image: url(./src/assets/images/background.png);
+    background-repeat: repeat;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+
+}
+.regionFilter
+{
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+}
+.regionFilter button
+{
+    margin: 10px;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: cornflowerblue;
+    color: blanchedalmond;
+    cursor: pointer;
+    box-shadow: 1.3px 1.3px rgba(128, 128, 128, 0.341);
+}
+.pokemonList
+{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: space-between;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1500px;
+}
+.pokeCard
+{   
+    max-height: 400px;
+    cursor: pointer;
+    margin: 25px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 10px;;
+    box-shadow: 1.5px 1.5px rgba(175, 175, 175, 0.34);
+    transition: all 0.2s ease-in-out;
+}
+.pokeCard:hover
+{
+    transform: scale(1.1);
+}
+.pokeCard .pokemonId
+{
+    text-align: center;
+    font-size: 1.2rem;
+    max-height: 20px;
+    font-weight: bold;
+    padding-top: 5px;
+}
+.pokeCard .nameContainer
+{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.pokeCard .imageContainer
+{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    padding: 20px;
+    margin: 5px;
+}
+.pokeCard .imageContainer img
+{   
+    max-width: 150px;
+    max-height: 150px;
+    margin-bottom: 5px;
+}
+.types
+{   
+    text-transform: capitalize;
+    text-align: center;
+    padding-bottom: 5px;
+}
+.types span
+{
+    text-transform: capitalize;
+    font-weight: bold;
+    border-radius: 5px;
+    color: white;
+    padding: 3px;
+    margin: 3px;
+}
+.grass
+{
+    background-color: #29691B;
+}
+.fire
+{
+    background-color: #961A1B;
+}
+.water
+{
+    background-color: #1B539B;
+}
+.bug
+{
+    background-color: #5E6910;
+}
+.normal
+{
+    background-color: #676967;
+}
+.flying
+{
+    background-color: #54789B;
+}
+.poison
+{
+    background-color: #5E2A84;
+}
+.electric
+{
+    background-color: #A37D00;
+}
+.ground
+{
+    background-color: #5E3515;
+}
+.fairy
+{
+    background-color: #9B499B;
+}
+.fighting
+{
+    background-color: #A65300;
+}
+.psychic
+{
+    background-color: #9B2A4F;
+}
+.rock
+{
+    background-color: #726E54;
+}
+.ghost
+{
+    background-color: #492A49;
+}
+.steel
+{
+    background-color: #3E6978;
+}
+.ice
+{
+    background-color: #28869E;
+}
+.dragon
+{
+    background-color: #343E92;
+}
+.dark
+{
+    background-color: #403233;
+}
+
+/* Dialog/Modal styling */
+
+.modal-title
+{   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin-left: 20px;
+}
+.modal-id
+{   
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 25px;
+}
+.modal-image-container
+{   
+    padding-top: 30px;
+    padding-right: 50px;
+    padding-bottom: 0px;
+    width: 170px;
+    height: 170px;
+}
+.modal-image-container img
+{
+    width: 200px;
+    height: 210px;
+}
+.kohan
+{   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.modal-name-container
+{
+    text-transform: capitalize;
+    margin-left: 10px;
+    max-width: fit-content;
+    max-height: fit-content;
+    text-align: center;
+}
+.modal-types
+{
+    max-width: fit-content;
+    max-height: fit-content;
+    text-transform: capitalize;
+    text-align: center;
+    margin-left: 10px;
+}
+.modal-types span
+{
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    color: white;
+    padding: 3px;
+    margin: 3px;
+}
+.abilities-container
+{
+    text-transform: capitalize;
+    margin-top: 0px;
+}
+ul
+{
+    display: flex;
+    gap: 0px 40px;
+    padding-left: 17px;
+}
+.loading
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-weight: bold;
+}
+.loading img
+{
+    position: absolute;
+    top: 60%;
+    left: 0%;
+    margin-top: -50px;
+    margin-left: -65px;
+}
