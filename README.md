@@ -18,6 +18,6 @@ A simple pokedex react app which shows a list of Pokemon based on regions built 
 
 ## To-do list
 - Add more pokemon details
-- Text Search and more filters
-- Dark Mode
+- Text search and more filters
+- Dark mode
 - Overall make the code cleaner
