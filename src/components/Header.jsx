@@ -2,7 +2,7 @@ import { GitHub } from "@material-ui/icons";
 
 function Header()
 {    
-    const titleImage = `./src/assets/images/title.png`;
+    const titleImage = `./title.png`;
 
     const openGithub = () => 
     {

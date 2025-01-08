@@ -1,6 +1,7 @@
+
 function Loading()
 {   
-    const loadingGif = `./src/assets/images/pikachu-running.gif`;  
+    const loadingGif = `./pikachu-running.gif`;  
 
     return(
         <div className="loading">

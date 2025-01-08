@@ -1,8 +1,23 @@
-# React + Vite
+# Pokedex React App
+A simple pokedex react app which shows a list of Pokemon based on regions built using React, [PokeApi](https://pokeapi.co) and Material UI.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Links
+[Repo](https://github.com/Ishan-Nobu/react-pokedex)
 
-Currently, two official plugins are available:
+## Screenshots
+![Screenshot (17980)](https://github.com/user-attachments/assets/63a8a78d-72dc-427e-8278-4bcb9c4ed77d)
+![Screenshot (17981)](https://github.com/user-attachments/assets/b283f6ec-e76b-4ad4-80e6-23204fd6f2b3)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Built Using
+- React
+- Material UI
+- PokeApi
+- JavaScript
+- HTML
+- CSS
+
+## To-do list
+- Add more pokemon details
+- Text search and more filters
+- Dark mode
+- Overall make the code cleaner
