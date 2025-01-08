@@ -4,7 +4,7 @@ function Loading()
 
     return(
         <div className="loading">
-            Loading...
+            <h4>  Loading...  </h4>
             <img src={loadingGif} alt="" />
         </div>
     );
