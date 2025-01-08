@@ -1,4 +1,3 @@
-
 function Loading()
 {   
     const loadingGif = `./pikachu-running.gif`;  
