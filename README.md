@@ -3,6 +3,7 @@ A simple pokedex react app which shows a list of Pokemon based on regions built 
 
 ## Links
 [Build](https://project-react-pokdex-one.netlify.app/)
+
 [Repo](https://github.com/Ishan-Nobu/react-pokedex)
 
 ## Screenshots
