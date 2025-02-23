@@ -6,6 +6,64 @@ function Pokedex()
     const [startId, setStartId] = useState(1);
     const [limitId, setLimitId] = useState(50);
     let pokemons = [];
+    const btnArray = [
+        {   
+            id: 1,
+            name: "Kanto",
+            upperLimit: 1,
+            lowerLimit: 151
+        },
+
+        {   
+            id: 2,
+            name: "Johto",
+            upperLimit: 152,
+            lowerLimit: 251
+        },
+        
+        {   
+            id: 3,
+            name: "Hoenn",
+            upperLimit: 252,
+            lowerLimit: 386
+        },
+        
+        {   
+            id: 4,
+            name: "Sinnoh",
+            upperLimit: 387,
+            lowerLimit: 493
+        },
+        
+        {   
+            id: 5,
+            name: "Unova",
+            upperLimit: 494,
+            lowerLimit: 649
+        },
+        
+        {   
+            id: 6,
+            name: "Kalos",
+            upperLimit: 650,
+            lowerLimit: 721
+        },
+        
+        {   
+            id: 7,
+            name: "Alola",
+            upperLimit: 722,
+            lowerLimit: 809
+        },
+        
+        {   
+            id: 8,
+            name: "Galar",
+            upperLimit: 810,
+            lowerLimit: 898
+        },
+        
+    ];
 
     function changeGen(start, limit)
     {   
@@ -22,14 +80,11 @@ function Pokedex()
     return(
         <div>  
             <div className="regionFilter">
-            <button onClick={() => changeGen(1, 151)} >Kanto</button>
-            <button onClick={() => changeGen(152, 251)}>Johto</button>
-            <button onClick={() => changeGen(252, 386)}>Hoenn</button>
-            <button onClick={() => changeGen(387, 493)}>Sinnoh</button>
-            <button onClick={() => changeGen(494, 649)}>Unova</button>
-            <button onClick={() => changeGen(650, 721)}>Kalos</button>
-            <button onClick={() => changeGen(722, 809)}>Alola</button>
-            <button onClick={() => changeGen(810, 898)}>Galar</button>
+                {
+                    btnArray.map(({ id, name, upperLimit, lowerLimit }) => (
+                        <button key={id} onClick={() => changeGen(upperLimit, lowerLimit)}>{name}</button>
+                    ))
+                }
             </div>
             <div className="pokemonList">
                 {pokemons}

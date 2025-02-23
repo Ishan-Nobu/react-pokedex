@@ -4,11 +4,13 @@ import { bgColorGradient } from "../utils/backgroundColors";
 import { getPokemon } from "../utils/apiFetch";
 import PokemonDialog from "./PokemonDialog";
 import { capitalize } from "@mui/material";
+import Shimmer from "./Shimmer";
 
 function PokemonCard( { id })
 {   
     const [pokemonData, setPokemonData] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     let bgColor;   // for card background color
     
@@ -17,6 +19,9 @@ function PokemonCard( { id })
         if(id)
         {
             getPokemon(id).then(result => setPokemonData(result.data));
+            setTimeout(() => {
+                setLoading(false);
+            }, 3000);
         }        
     }, [id]);
 
@@ -24,7 +29,7 @@ function PokemonCard( { id })
     const handleDialog = () => {
         setIsOpen(!isOpen);
     };
-    
+
     if(pokemonData?.types?.length === 2)  // set the bg color
     {
         bgColor = bgColorGradient(pokemonData?.types?.[0]?.type?.name, pokemonData?.types?.[1]?.type?.name, pokemonData?.types?.length);
@@ -47,7 +52,18 @@ function PokemonCard( { id })
                 </div>
 
                 <div className="imageContainer">
-                    <img src={pokemonImageUrl(pokemonData.id)} alt="sprite" />
+                    {
+                        loading &&
+                        (
+                            <Shimmer/>
+                        )
+                    }
+                    {
+                        loading ||
+                        (
+                            <img src={pokemonImageUrl(pokemonData.id)} alt="sprite"/>
+                        )
+                    }
                 </div>
 
                 <div className="nameContainer">
