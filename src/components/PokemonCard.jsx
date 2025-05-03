@@ -1,9 +1,8 @@
-import { Suspense, useState } from "react";
+import { useState } from "react";
 import { pokemonImageUrl } from "../utils/helper";
 import { bgColorGradient } from "../utils/backgroundColors";
 import PokemonDialog from "./PokemonDialog";
 import { capitalize } from "@mui/material";
-import Shimmer from "./Shimmer";
 
 
 function PokemonCard( { pokemonData, loading } )
@@ -28,30 +27,18 @@ function PokemonCard( { pokemonData, loading } )
 
     return(
         <>  
-
             <div className="pokeCard" id={pokemonData?.types?.[0]?.type?.name} style={{background: `linear-gradient(${bgColor[0]}, ${bgColor[1]})`}}
                 onClick={handleDialog}>
 
                 <PokemonDialog isDialogOpened={isOpen} handleCloseDialog={handleDialog} pokemon={pokemonData} 
                                 bgColor1={bgColor[0]} bgColor2={bgColor[1]}/> 
-
+                
                 <div className="pokemonId"> 
                     #{String(pokemonData.id).padStart(3, "0")}
                 </div>
 
                 <div className="imageContainer">
-                    {
-                        loading &&
-                        (
-                            <Shimmer/>
-                        )
-                    }
-                    {
-                        loading ||
-                        (
-                            <img src={pokemonImageUrl(pokemonData.id)} alt="sprite"/>
-                        )
-                    }
+                    <img src={pokemonImageUrl(pokemonData.id)} alt="sprite"/>   
                 </div>
 
                 <div className="nameContainer">

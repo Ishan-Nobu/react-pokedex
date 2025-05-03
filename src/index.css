@@ -46,6 +46,11 @@ body
     cursor: pointer;
     box-shadow: 1.3px 1.3px rgba(128, 128, 128, 0.341);
 }
+.regionFilter button:hover
+{
+    background-color: rgb(25, 77, 175);
+    transition: ease-in-out;
+}
 .pokemonList
 {
     display: flex;
@@ -271,30 +276,5 @@ ul
     justify-content: center;
     align-items: center;
     margin: auto;
-    height: 700px;
-}
-.shimmer
-{
-    background-image: linear-gradient(to right, #ebebeb61 calc(50% - 100px), #c5c5c544 50%, #ebebeb5d calc(50% + 100px));
-    background-size: 0;
-    height: 150px;
-    position: relative;
-    overflow: hidden;  
-}
-.shimmer::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: calc(200% + 200px);
-    bottom: 0;
-    background-image: inherit;
-    animation: move 2s linear infinite; 
-}
-@keyframes move
-{
-    to 
-    {
-        transform: translateX(calc(50% + 100px));
-    }
+    height: 300px;
 }

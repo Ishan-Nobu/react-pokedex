@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import PokemonCard from "./PokemonCard";
 import { getPokemon } from "../utils/apiFetch";
 import axios from "axios";
+import Loading from "./Loading";
 
 function Pokedex()
 {   
@@ -111,9 +112,16 @@ function Pokedex()
                 }
             </div>
             <div className="pokemonList">
-                {data.map((pokemonData, i) => (  
-                    <PokemonCard key={i} pokemonData={pokemonData} loading={loading}/>
-                ))}
+                {loading && 
+                    <Loading/>
+                }
+                {loading ||
+                    <>
+                    {data.map((pokemonData, i) => (  
+                        <PokemonCard key={i} pokemonData={pokemonData} loading={loading}/>
+                    ))}
+                    </>
+                }
             </div>
         </div>
     );
