@@ -1,80 +1,104 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PokemonCard from "./PokemonCard";
+import { getPokemon } from "../utils/apiFetch";
+import axios from "axios";
 
 function Pokedex()
 {   
-    const [startId, setStartId] = useState(1);
-    const [limitId, setLimitId] = useState(50);
-    let pokemons = [];
+    const [loading, setLoading] = useState(true);
+    const [filter, setFilter] = useState({
+        offset: 0,
+        limit: 151,
+    })
+    const [pokemonList, setPokemonList] = useState([])
+    const [data, setData] = useState([])
+
+    useEffect(() => 
+    {   
+        getPokemon(filter.offset, filter.limit).then(result => setPokemonList(result.data?.results))
+    }, [filter]) 
+    
+    // fetch pokemon data after the list is updated
+    useEffect(() => {
+        getPokemonData()
+    }, [pokemonList])
+
+    const getPokemonData = async() => {   
+        const response = await Promise.all(pokemonList.map(async(pokemon) => {
+            return (await axios.get(pokemon.url)).data
+        }))
+        setData(response);
+        setLoading(false);
+    }
+
+    const changeRegion = (lowerLimit, upperLimit) =>
+    {   
+        setLoading(true);
+        setFilter(prevFilter => ({
+            ...prevFilter,
+            offset: lowerLimit,
+            limit: upperLimit,
+        }));
+    }
+    
     const btnArray = [
         {   
             id: 1,
             name: "Kanto",
-            upperLimit: 1,
-            lowerLimit: 151
+            upperLimit: 151,
+            lowerLimit: 0
         },
 
         {   
             id: 2,
             name: "Johto",
-            upperLimit: 152,
-            lowerLimit: 251
+            upperLimit: 100,
+            lowerLimit: 151
         },
         
         {   
             id: 3,
             name: "Hoenn",
-            upperLimit: 252,
-            lowerLimit: 386
+            upperLimit: 135,
+            lowerLimit: 251
         },
         
         {   
             id: 4,
             name: "Sinnoh",
-            upperLimit: 387,
-            lowerLimit: 493
+            upperLimit: 107,
+            lowerLimit: 386
         },
         
         {   
             id: 5,
             name: "Unova",
-            upperLimit: 494,
-            lowerLimit: 649
+            upperLimit: 156,
+            lowerLimit: 493
         },
         
         {   
             id: 6,
             name: "Kalos",
-            upperLimit: 650,
-            lowerLimit: 721
+            upperLimit: 72,
+            lowerLimit: 649
         },
         
         {   
             id: 7,
             name: "Alola",
-            upperLimit: 722,
-            lowerLimit: 809
+            upperLimit: 86,
+            lowerLimit: 721
         },
         
         {   
             id: 8,
             name: "Galar",
-            upperLimit: 810,
-            lowerLimit: 898
+            upperLimit: 92,
+            lowerLimit: 809
         },
         
     ];
-
-    function changeGen(start, limit)
-    {   
-        setStartId(s => s = start);
-        setLimitId(l => l = limit);
-    }
-
-    for(let i = startId; i <= limitId; i++)
-    {
-        pokemons.push(<PokemonCard key= {i} id={i}/>);
-    }
 
 
     return(
@@ -82,12 +106,14 @@ function Pokedex()
             <div className="regionFilter">
                 {
                     btnArray.map(({ id, name, upperLimit, lowerLimit }) => (
-                        <button key={id} onClick={() => changeGen(upperLimit, lowerLimit)}>{name}</button>
+                        <button key={id} onClick={() => changeRegion(lowerLimit, upperLimit)}>{name}</button>
                     ))
                 }
             </div>
             <div className="pokemonList">
-                {pokemons}
+                {data.map((pokemonData, i) => (  
+                    <PokemonCard key={i} pokemonData={pokemonData} loading={loading}/>
+                ))}
             </div>
         </div>
     );

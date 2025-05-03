@@ -1,29 +1,16 @@
-import { useState, useEffect } from "react";
+import { Suspense, useState } from "react";
 import { pokemonImageUrl } from "../utils/helper";
 import { bgColorGradient } from "../utils/backgroundColors";
-import { getPokemon } from "../utils/apiFetch";
 import PokemonDialog from "./PokemonDialog";
 import { capitalize } from "@mui/material";
 import Shimmer from "./Shimmer";
 
-function PokemonCard( { id })
+
+function PokemonCard( { pokemonData, loading } )
 {   
-    const [pokemonData, setPokemonData] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
-    const [loading, setLoading] = useState(true);
 
     let bgColor;   // for card background color
-    
-    // fetch the pokemon data 
-    useEffect(() => {
-        if(id)
-        {
-            getPokemon(id).then(result => setPokemonData(result.data));
-            setTimeout(() => {
-                setLoading(false);
-            }, 3000);
-        }        
-    }, [id]);
 
     // handling dialog/modal opening
     const handleDialog = () => {
@@ -41,6 +28,7 @@ function PokemonCard( { id })
 
     return(
         <>  
+
             <div className="pokeCard" id={pokemonData?.types?.[0]?.type?.name} style={{background: `linear-gradient(${bgColor[0]}, ${bgColor[1]})`}}
                 onClick={handleDialog}>
 
